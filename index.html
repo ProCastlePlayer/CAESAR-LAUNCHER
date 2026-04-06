@@ -1,0 +1,49 @@
+<div class="launcher-container">
+  <h1 class="main-title">CAESAR LAUNCHER</h1>
+  
+  <div class="grid">
+    <!-- Jogo 1: Star Guardian -->
+    <button class="game-btn" onclick="openModal('star')">
+      Star Guardian
+    </button>
+    
+    <!-- Jogo 2: Hacker Simulator -->
+    <button class="game-btn" onclick="openModal('hacker')">
+      Hacker Simulator
+    </button>
+    
+    <!-- Jogo 3: Super Pixel Drive -->
+    <button class="game-btn" onclick="openModal('pixel')">
+      Super Pixel Drive
+    </button>
+    
+    <!-- Slots Vazios (Estilo Launcher) -->
+    <div class="game-btn empty"></div>
+    <div class="game-btn empty"></div>
+    <div class="game-btn empty"></div>
+    <div class="game-btn empty"></div>
+    <div class="game-btn empty"></div>
+    <div class="game-btn empty"></div>
+  </div>
+</div>
+
+<!-- Modal estilo Roblox -->
+<div id="gameModal" class="modal-overlay">
+  <div class="modal-card">
+    <span class="close-btn" onclick="closeModal()">&times;</span>
+    
+    <h2 id="modalTitle">Nome do Jogo</h2>
+    <p id="modalDesc" class="description">Descrição do jogo...</p>
+    
+    <div class="controls-section">
+      <div class="control-item">
+        <strong>💻 PC:</strong> <span id="pcControls">...</span>
+      </div>
+      <div class="control-item">
+        <strong>📱 MOBILE:</strong> <span id="mobileControls">...</span>
+      </div>
+    </div>
+    
+    <a id="playButton" href="#" target="_blank" class="play-btn">JOGAR</a>
+  </div>
+</div>
