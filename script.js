@@ -18,7 +18,7 @@ const gamesData = {
     desc: "Corrida arcade com gráficos retrô. AINDA NÃO DISPONÍVEL",
     pc: "Setas para ir para os lados",
     mobile: "Em Breve",
-    link: "#"
+    link: "https://procastleplayer.github.io/AINDA-NAO-DISPONIVEL/"
   }
 };
 
