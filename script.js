@@ -15,10 +15,10 @@ const gamesData = {
   },
   pixel: {
     title: "Super Pixel Drive",
-    desc: "Corrida arcade com gráficos retrô. AINDA NÃO DISPONÍVEL",
+    desc: "Corrida arcade com gráficos retrô. Para jogar de novo, recarregue a página.",
     pc: "Setas para ir para os lados",
     mobile: "Em Breve",
-    link: "https://procastleplayer.github.io/AINDA-NAO-DISPONIVEL/"
+    link: "https://procastleplayer.github.io/Super-Pixel-Drive/"
   }
 };
 
