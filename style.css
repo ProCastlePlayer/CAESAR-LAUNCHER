@@ -1,113 +1,146 @@
+:root {
+    --win-black: #0a0a0a;
+    --win-gray-dark: #1c1c1c;
+    --win-gray-light: #2c2c2c;
+    --win-border: rgba(255, 255, 255, 0.08);
+    --win-white: #ffffff;
+    --text-secondary: #a0a0a0;
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: "Segoe UI Variable", "Segoe UI", Arial, sans-serif;
+}
+
 body {
-  background-color: #f4f4f4;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 50px;
-  margin: 0;
+    background-color: var(--win-black);
+    color: var(--win-white);
+    -webkit-font-smoothing: antialiased;
 }
 
-.main-title {
-  text-align: center;
-  font-family: 'Georgia', serif;
-  font-size: 3rem;
-  color: #333;
-  margin-bottom: 40px;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+.steam-nav {
+    background-color: rgba(28, 28, 28, 0.8);
+    backdrop-filter: blur(20px);
+    padding: 15px 10%;
+    border-bottom: var(--win-border);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 220px);
-  gap: 20px;
-  justify-content: center;
+.logo {
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.game-btn {
-  height: 110px;
-  border: 2px solid #999;
-  border-radius: 18px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: #222;
-  cursor: pointer;
-  background: linear-gradient(to bottom, #ffffff 0%, #e5e5e5 45%, #d1d1d1 50%, #e2e2e2 100%);
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.1s;
+.steam-container {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 0 24px;
 }
 
-.game-btn:hover {
-  filter: brightness(1.05);
-  transform: scale(1.02);
+.section-title {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
-.game-btn:active {
-  transform: scale(0.98);
+/* Banner Principal */
+.featured-banner {
+    background-color: var(--win-gray-dark);
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--win-border);
+    margin-bottom: 48px;
+    height: 380px;
+    transition: 0.3s ease;
 }
 
-.empty {
-  opacity: 0.4;
-  cursor: default;
+.featured-banner:hover { border-color: rgba(255, 255, 255, 0.2); }
+.main-img { flex: 2; background: #111; overflow: hidden; }
+.img-render { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.featured-info {
+    flex: 1;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  z-index: 1000;
+.featured-info h2 { font-size: 28px; margin-bottom: 8px; }
+.tags { color: var(--text-secondary); font-size: 13px; margin-bottom: 16px; }
+
+/* Grade de Jogos */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
 }
 
-.modal-card {
-  background: white;
-  width: 90%;
-  max-width: 450px;
-  margin: 100px auto;
-  padding: 30px;
-  border-radius: 20px;
-  text-align: center;
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+.game-card {
+    background: var(--win-gray-dark);
+    cursor: pointer;
+    border-radius: 8px;
+    padding: 8px;
+    transition: all 0.2s ease-out;
+    border: 1px solid transparent;
 }
 
-.close-btn {
-  position: absolute;
-  top: 15px; right: 20px;
-  font-size: 30px;
-  cursor: pointer;
-  color: #999;
+.game-card:hover {
+    background: var(--win-gray-light);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-4px);
 }
 
-.description {
-  color: #666;
-  margin: 20px 0;
-  line-height: 1.5;
+.game-thumb {
+    height: 140px;
+    background: #111;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
 }
 
-.controls-section {
-  background: #f9f9f9;
-  padding: 15px;
-  border-radius: 10px;
-  text-align: left;
-  margin-bottom: 25px;
+.placeholder-icon { font-size: 50px; }
+.game-details { padding: 4px 8px 8px 8px; }
+.game-name { color: var(--win-white); font-weight: 500; font-size: 14px; display: block; }
+.game-price { color: var(--text-secondary); font-size: 12px; margin-top: 4px; display: block; }
+
+/* Botão Estilo Windows 11 */
+.steam-btn {
+    display: inline-block;
+    padding: 10px 24px;
+    background-color: var(--win-white);
+    color: var(--win-black);
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.2s;
+    text-align: center;
+    border: none;
+    cursor: pointer;
 }
 
-.control-item { margin: 5px 0; font-size: 0.95rem; }
+.steam-btn:hover { background-color: #e6e6e6; transform: scale(1.05); }
+.upcoming { opacity: 0.5; cursor: not-allowed; }
 
-.play-btn {
-  display: block;
-  background: linear-gradient(to bottom, #2ecc71, #27ae60);
-  color: white;
-  text-decoration: none;
-  padding: 15px;
-  border-radius: 50px;
-  font-weight: bold;
-  font-size: 1.3rem;
-  box-shadow: 0 4px 0 #1e8449;
+/* --- NOVOS ESTILOS PARA DETALHES --- */
+.back-btn {
+    background: none; border: none; color: var(--text-secondary);
+    cursor: pointer; font-size: 12px; margin-bottom: 20px;
 }
+.back-btn:hover { color: white; }
+.detail-layout { display: grid; grid-template-columns: 1fr 320px; gap: 30px; }
+.info-section { background: var(--win-gray-dark); padding: 30px; border-radius: 8px; border: 1px solid var(--win-border); }
+.play-card { background: var(--win-gray-light); padding: 30px; border-radius: 8px; text-align: center; height: fit-content; }
 
-.play-btn:active {
-  transform: translateY(3px);
-  box-shadow: 0 1px 0 #1e8449;
+@media (max-width: 768px) {
+    .detail-layout { grid-template-columns: 1fr; }
+    .featured-banner { flex-direction: column; height: auto; }
 }
