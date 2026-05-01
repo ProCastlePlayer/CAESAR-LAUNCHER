@@ -8,56 +8,134 @@
 </head>
 <body>
 
-<div class="launcher-container">
-  <h1 class="main-title">CAESAR LAUNCHER</h1>
-  
-  <div class="grid">
-    <!-- Jogo 1: Star Guardian -->
-    <button class="game-btn" onclick="openModal('star')">
-      Star Guardian
-    </button>
-    
-    <!-- Jogo 2: Hacker Simulator -->
-    <button class="game-btn" onclick="openModal('hacker')">
-      Hacker Simulator
-    </button>
-    
-    <!-- Jogo 3: Super Pixel Drive -->
-    <button class="game-btn" onclick="openModal('pixel')">
-      Super Pixel Drive
-    </button>
-    
-    <!-- Slots Vazios (Estilo Launcher) -->
-    <div class="game-btn empty"></div>
-    <div class="game-btn empty"></div>
-    <div class="game-btn empty"></div>
-    <div class="game-btn empty"></div>
-    <div class="game-btn empty"></div>
-    <div class="game-btn empty"></div>
-  </div>
-</div>
+    <header>
+        <nav class="steam-nav">
+            <div class="logo" onclick="showStore()" style="cursor:pointer">Caesar Launcher</div>
+        </nav>
+    </header>
 
-<!-- Modal estilo Roblox -->
-<div id="gameModal" class="modal-overlay">
-  <div class="modal-card">
-    <span class="close-btn" onclick="closeModal()">&times;</span>
-    
-    <h2 id="modalTitle">Nome do Jogo</h2>
-    <p id="modalDesc" class="description">Descrição do jogo...</p>
-    
-    <div class="controls-section">
-      <div class="control-item">
-        <strong>💻 PC:</strong> <span id="pcControls">...</span>
-      </div>
-      <div class="control-item">
-        <strong>📱 MOBILE:</strong> <span id="mobileControls">...</span>
-      </div>
-    </div>
-    
-    <a id="playButton" href="#" target="_blank" class="play-btn">JOGAR</a>
-  </div>
-</div>
+    <!-- PÁGINA DA LOJA (VITRINE) -->
+    <main id="store-page" class="steam-container">
+        <h2 class="section-title">DESTAQUE</h2>
+        
+        <div class="featured-banner">
+            <div class="main-img">
+                <img src="teste wallpaper 1.jpg" alt="Destaque" class="img-render">
+            </div>
+            <div class="featured-info">
+                <h2 id="feat-title">Star Guardian</h2>
+                <div class="tags">Tiro, Espacial, Indie</div>
+                <p>Jogue Agora o destaque da semana.</p>
+                <button class="steam-btn" onclick="openGame('star-guardian')">Saber Mais</button>
+            </div>
+        </div>
 
-<script src="script.js"></script>
+        <h2 class="section-title">Recomendados</h2>
+        
+        <section class="game-grid">
+            
+            <div class="game-card" onclick="openGame('hacker-simulator')">
+                <div class="game-thumb">
+                    <div class="placeholder-icon">💻</div>
+                </div>
+                <div class="game-details">
+                    <span class="game-name">Hacker Simulator</span>
+                    <span class="game-price">Gratuito</span>
+                </div>
+            </div>
+
+            <div class="game-card" onclick="openGame('pixel-drive')">
+                <div class="game-thumb">
+                    <div class="placeholder-icon">🏎️</div>
+                </div>
+                <div class="game-details">
+                    <span class="game-name">Super Pixel Drive</span>
+                    <span class="game-price">Gratuito</span>
+                </div>
+            </div>
+
+            <div class="game-card upcoming">
+                <div class="game-thumb">
+                    <div class="placeholder-icon">⚔️</div>
+                </div>
+                <div class="game-details">
+                    <span class="game-name">Em Breve</span>
+                    <span class="game-price">Bloqueado</span>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- PÁGINA DE DETALHES (COMEÇA ESCONDIDA) -->
+    <main id="details-page" class="steam-container" style="display: none;">
+        <button class="back-btn" onclick="showStore()">← VOLTAR PARA A LOJA</button>
+        
+        <div class="detail-layout">
+            <div class="info-section">
+                <h1 id="det-title">NOME DO JOGO</h1>
+                <br>
+                <h2 class="section-title">Sobre o Jogo</h2>
+                <p id="det-desc" style="line-height: 1.6; color: var(--text-secondary);">
+                    COLOQUE AQUI A DESCRIÇÃO DO JOGO
+                </p>
+                <br><br>
+                <h2 class="section-title">Como Jogar</h2>
+                <p id="det-howto" style="line-height: 1.6; color: var(--text-secondary);">
+                    COLOQUE AQUI AS INSTRUÇÕES DE COMANDOS
+                </p>
+            </div>
+
+            <div class="play-card">
+                <div id="det-icon" class="placeholder-icon" style="margin-bottom: 20px;">🎮</div>
+                <a id="det-link" href="#" target="_blank" class="steam-btn" style="width: 100%;">JOGAR AGORA</a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // COLOQUE AQUI AS INFORMAÇÕES DE CADA JOGO
+        const gamesData = {
+            'star-guardian': {
+                title: 'Star Guardian',
+                desc: 'Um jogo de tiro espacial épico! Enfrente hordas de inimigos e proteja a galáxia.',
+                howto: 'PC: Setas para mover | Espaço para atirar / MOBILE: Botões virtuais na tela',
+                link: 'https://procastleplayer.github.io/STAR-GUARDIAN---GAME/',
+                icon: '🚀'
+            },
+            'hacker-simulator': {
+                title: 'Hacker Simulator',
+                desc: 'Entre no sistema, burle firewalls e torne-se o mestre da rede.',
+                howto: 'PC: Clique com o mouse / MOBILE: Toque na tela',
+                link: 'https://procastleplayer.github.io/ProjetoBomDia/',
+                icon: '💻'
+            },
+            'pixel-drive': {
+                title: 'Super Pixel Drive',
+                desc: 'Corrida arcade com gráficos retrô. Para jogar de novo, recarregue a página.',
+                howto: 'PC: Setas para ir para os lados / MOBILE: Em Breve',
+                link: 'https://procastleplayer.github.io/Super-Pixel-Drive/',
+                icon: '🏎️'
+            }
+        };
+
+        function openGame(gameKey) {
+            const game = gamesData[gameKey];
+            document.getElementById('det-title').innerText = game.title;
+            document.getElementById('det-desc').innerText = game.desc;
+            document.getElementById('det-howto').innerText = game.howto;
+            document.getElementById('det-link').href = game.link;
+            document.getElementById('det-icon').innerText = game.icon;
+
+            document.getElementById('store-page').style.display = 'none';
+            document.getElementById('details-page').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        function showStore() {
+            document.getElementById('store-page').style.display = 'block';
+            document.getElementById('details-page').style.display = 'none';
+        }
+    </script>
 </body>
 </html>
